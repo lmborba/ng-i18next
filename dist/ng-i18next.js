@@ -1,4 +1,52 @@
 /*!
+ * ng-i18next - Version 1.0.5 - 2018-05-03
+ * Copyright (c) 2018 Andre Meyering
+ *
+ * AngularJS provider, filter and directive for i18next (i18next by Jan Mühlemann)
+ *
+ * - Source: https://github.com/i18next/ng-i18next/
+ * - Issues: https://github.com/i18next/ng-i18next/issues
+ *
+ * License: MIT - https://github.com/i18next/ng-i18next/blob/master/LICENSE
+ *
+*/
+/*!
+ * ng-i18next - Version 1.0.5 - 2018-05-03
+ * Copyright (c) 2018 Andre Meyering
+ *
+ * AngularJS provider, filter and directive for i18next (i18next by Jan Mühlemann)
+ *
+ * - Source: https://github.com/i18next/ng-i18next/
+ * - Issues: https://github.com/i18next/ng-i18next/issues
+ *
+ * License: MIT - https://github.com/i18next/ng-i18next/blob/master/LICENSE
+ *
+*/
+/*!
+ * ng-i18next - Version 1.0.5 - 2018-05-03
+ * Copyright (c) 2018 Andre Meyering
+ *
+ * AngularJS provider, filter and directive for i18next (i18next by Jan Mühlemann)
+ *
+ * - Source: https://github.com/i18next/ng-i18next/
+ * - Issues: https://github.com/i18next/ng-i18next/issues
+ *
+ * License: MIT - https://github.com/i18next/ng-i18next/blob/master/LICENSE
+ *
+*/
+/*!
+ * ng-i18next - Version 1.0.5 - 2018-05-03
+ * Copyright (c) 2018 Andre Meyering
+ *
+ * AngularJS provider, filter and directive for i18next (i18next by Jan Mühlemann)
+ *
+ * - Source: https://github.com/i18next/ng-i18next/
+ * - Issues: https://github.com/i18next/ng-i18next/issues
+ *
+ * License: MIT - https://github.com/i18next/ng-i18next/blob/master/LICENSE
+ *
+*/
+/*!
  * ng-i18next - Version 1.0.4 - 2017-05-26
  * Copyright (c) 2017 Andre Meyering
  *
@@ -9,7 +57,10 @@
  *
  * License: MIT - https://github.com/i18next/ng-i18next/blob/master/LICENSE
  *
-*/
+ */
+
+var I18next = require('i18next');
+
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('angular')) :
 	typeof define === 'function' && define.amd ? define(['angular'], factory) :
@@ -234,6 +285,8 @@ var I18nFilter = (function () {
     return I18nFilter;
 }());
 
+var i18next = I18next.I18n
+			      
 var I18nTranslateService = (function () {
     function I18nTranslateService($rootScope, translationOptions) {
         this.$rootScope = $rootScope;

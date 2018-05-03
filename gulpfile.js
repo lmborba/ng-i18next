@@ -55,9 +55,9 @@ var headerMetaMin = '/*! <%= pkg.name %> - <%= pkg.version %> - ' + getToday() +
 	' - Copyright (c) ' + new Date().getFullYear() + ' <%= pkg.author.name %>; Licensed <%= pkg.license %>*/';
 
 gulp.task('bump', function () {
-	return gulp.src(['./bower.json', './package.json'])
-		.pipe(bump())
-		.pipe(gulp.dest('./'));
+    return gulp.src(['./bower.json', './package.json'])
+	.pipe(bump())
+	.pipe(gulp.dest('./'));
 });
 
 gulp.task('clean', [], function () {
@@ -85,15 +85,26 @@ gulp.task('rollup', ['clean', 'karma'], function () {
 		.pipe(gulp.dest('./build/'));
 });
 
+gulp.task('uglify',function() {
+    return gulp.src('./dist/ng-i18next.js')
+	.pipe(header(headerMeta, { pkg: pkg }))
+	.pipe(gulp.dest('./dist/'))
+	.pipe(rename(pkg.name + '.min.js'))
+	.pipe(uglify({ mangle: false }))
+	.pipe(header(headerMetaMin, { pkg: pkg }))
+	.pipe(size())
+	.pipe(gulp.dest('./dist/'));
+})
+
 gulp.task('concat', ['clean', 'karma', 'rollup'], function () {
-	return gulp.src('./build/ng-i18next.js')
-		.pipe(header(headerMeta, { pkg: pkg }))
-		.pipe(gulp.dest('./dist/'))
-		.pipe(rename(pkg.name + '.min.js'))
-		.pipe(uglify({ mangle: false }))
-		.pipe(header(headerMetaMin, { pkg: pkg }))
-		.pipe(size())
-		.pipe(gulp.dest('./dist/'));
+    return gulp.src('./build/ng-i18next.js')
+	.pipe(header(headerMeta, { pkg: pkg }))
+	.pipe(gulp.dest('./dist/'))
+	.pipe(rename(pkg.name + '.min.js'))
+	.pipe(uglify({ mangle: false }))
+	.pipe(header(headerMetaMin, { pkg: pkg }))
+	.pipe(size())
+	.pipe(gulp.dest('./dist/'));
 });
 
 //run tests
